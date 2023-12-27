@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<a href="https://www.w3schools.com/tags/att_script_defer.asp" title="W3Schools">Click here</a>
+<script>
+    let array = []; // Array Literal, assigned an empty array to array variable using square brackets
+    array[0] = 1; //assigning values to the empty array;
+    array[1] = 2; //
+    array[4] = 5; //
+    console.log(array.at(1)); //using at() we find element at the specified index
+    console.log(array[1]) // using [] , we too find the element at the specified index
+
+    let array1 = ["A", "B", "C", "D", "E", "F", "G", 1, 2, 3, [1, 2], {number: 1}, true, 3.14]; // An array with multiple data types
+
+    console.log("Join Method = ", array1.join("-")) // We are joining all the elements using "-";
+    // Output : A-B-C-D-E-F-G-1-2-3-1,2-[object Object]-true-3.14
+
+    // So, we will try to get them properly
+
+    console.log("Flat Method", array1.flat(10)) //The flat() method concatenates sub-array elements., param => optional
+    console.log("typeof =", typeof array1[10]) // The typeof returns data type of the element, => Returned object,
+
+    let array122 = array1.splice(3, 3, "DD", "DE", "DF")
+    console.log("splice()", array122) // Changed the actual array,
+    // param1 = from index to change, // param2 => number of elements to be removed, param3 => "Adds new elements"
+
+    console.log("After splice method, changes actual array = ", array1) //
+
+    let array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // Another array initialised
+    console.log("pop() = ", array2.pop()); // pop method pops/ removes the last element in the array, it changes the original array
+
+    console.log("After pop() = ", array2);
+
+    console.log("PUSH() = returns length = ", array2.push(10, "NO", "YES")); // push method pushes/ adds an element to the end of an array, it changes the original array, changes the length of an array, returns the new length
+    console.log("array2 after push = ", array2);
+
+    console.log("array length after push() = ", array2.length)
+
+    let array3 = [0, 1, 2, 3, 4, 5, 6, 7, "A", "B", "C"]; // New array created/ initialised
+    console.log("shift() Method= ", array3.shift()); // The shift() method removes the first item of an array.The shift() method changes the original array.The shift() method returns the shifted element.
+
+    console.log("Array3 after shift() method = ", array3) // Array 3 changed
+
+    console.log("unshift() method array3.length, returns length =", array3.unshift(-1, -2)); // Adds items to the beginning of an array, min. 1 param is required, overwrites the original array, returns the new length of the array
+    console.log("new lenfth of array3 after unshift() method = ", array3);
+
+    let array4 = ["Z", "Y", "X", "V", "U", "T", "S"]; // Initialised new array
+    console.log("sliced() method, this is a new array, which is sliced", array4.slice()) // slice method returns selected elements, in a new array, slices from 1st param to 2nd param, does not change original array
+
+    console.log("Sliced array : from index 3 to 5", array4.slice(3, 5)) //sliced from index 3 to 5, returned new array //OUTPUT : V U,
+
+    //Use splice() and slice() together to do not modify the original array
+    let array41 = array4.slice()
+    array41.splice(array41.length, 0, "R", "Q", "P");
+    console.log("spliced array array41 = ", array41);
+
+    console.log("Concatenated array4, array3 and array2 = ", array4.concat(array3, array2)); // Returns new array, does not change the original array
+
+
+    // forEach Method()
+    let array5 = ["Venus", "Mars", "Earth", "Neptune", "Jupiter", "NS23", "Nebula", "TON"]; // New array initialised
+    let planetsInSolarSystem = ["Venus", "Mars", "Earth", "Neptune", "Jupiter", "Saturn", "Mercury"] // New array initialised
+    array5.forEach(function (value, index) {  // Calls a function on every element and not on empty elements, (function(value, index, array), this); while function() and value are required, returns undefined
+        if (planetsInSolarSystem.includes(value)) { //using includes which means if we find the elements in the array of array5 in the plantsInSolarSystem, true value will be returned for the items found in the above array
+            console.log(index + " : " + value + " is in solar system");
+        } else {
+            console.log(index + " : " + value + " is not in solar system")
+        }
+    })
+
+    console.log("array 5 not changed after forEach() = ", array5);
+
+    console.log("indexOf() method = returns first index of the value = ", array5.indexOf("Nebula", 0)) //indexOf returns the first matching element, takes 2 parameters, second param specifies the search start from
+
+    let array6 = ["Apple", "Fast", "Banana", "Fast", "Cat", "Dog", "Egg", "Fast"] //Initialised new array
+    console.log("array6 = ", array6); //
+    console.log("lastIndexOf = ", array6.lastIndexOf("Fast", 4))// lastIndexOf() method will find the index from the last element, will also accept start param, searches from right to left, returns -1 if not element is found, if we give start number, the start is start in any method, it will start from index 0, if the start value is positive
+
+    const array7 = ["Asif", "Shourya", "Rahul", "Asif"]; // Initialised new array
+    console.log("filter() = ", array7.filter(checkAdult)); // filtering the array with the function, will see filter in next lines of the file,
+    //Use forEach() method to use the includes() method and to get the value, if not includes() will only return boolean
+    function checkAdult(name) {
+        return name.includes("Asif") //includes() will return boolean, returns "true" if the value is found and vice-versa, case-sensitive, accepts start param, the start param is not working while using with filter method
+    }
+
+    // If we use map() function instead of filter in the above code, we will get output as "true,false,false".
+
+    let array8 = ["YES", "NO", true, false, 90, 23, [2, 3], 90, false, {
+        name: "Shou Ka",
+        hair: "Black",
+        eyes: "Black",
+        mentality: "Brute, Controlled Aggression"
+    }, {name: "King Kohli", hair: "Black", eyes: "Black", mentality: "Extreme, Aggression"}]; // Initialised array
+
+    console.log("slice() method = ", array8.slice().reverse().find((value, index) => { //value = value of the array8 and index = index of the array8, executes function on every element, and find the first element that passes the test, returns undefined, if no element is found, does not change the original array
+        return index, value == false
+    })) // Returning the first value that passes the condition, find() will return a value of number data type
+
+    console.log("findIndex() method = ", array8.findIndex((val, index) => {
+        return val == 90
+    })) // executes a function for each array element. returns the index (position) of the first element that passes a test. returns -1 if no match is found. does not execute the function for empty array elements. does not change the original array.
+
+    console.log("findLastIndex() method = ", array8.findLastIndex((val, index) => {
+        return val == 90 //// executes a function for each array element from right to left. returns the index (position) of the first element that passes a test. returns -1 if no match is found. does not execute the function for empty array elements. does not change the original array.
+    }))
+
+    let array9 = [200, 30, 40, 450, 500, 60, 700]; // Initialised new array
+    console.log("filter() method = ", array9.filter((value) => {  // filter method will execute function  on every element and returns element(s) that passes the test, Does not execute function for empty elements, does not change original array
+        return value < 100; // Output 30, 40, 60
+    }))
+
+    let array10 = ["Spices", "Pulses", "Almonds", "Jilebi"]; // Initialised new array
+    console.log(array10.map(function (value, index) { // map() function  creates a new array from calling a function for every array element. does not execute the function for empty elements. does not change the original array., returns new array which containing the result of the function
+        return value + " are essential"
+    }))
+
+    //forEach vs map()
+    // Original array
+    const numbers = [1, 2, 3, 4];
+
+    // Using forEach to double each element (side effect)
+    let num = numbers.forEach((number, index, array) => {
+        array[index] = number * 2;
+    });
+
+    console.log("forEach of the original array = ", numbers); // Output: [2, 4, 6, 8]
+
+    console.log("forEach = returns undefined", num) //forEach will return undefined
+
+    let array11 = [90, 78, 66, 9, 32, 22, 76];
+    console.log("sort(function(a,b){a-b}) = ", array11.sort(function (a, b) { // sort() will sort the elements of an array sort() will function properly for strings, but not for numbers because elements are converted to strings and then compared according to their UTF-16 code unit values. so we use a compare function, this param is optional
+        return a - b // for ascending order a - b, for descending order b - a, sort() overwrites the original array
+    }))
+
+    // now the array11 updated with the sort() method and elements are arranged according to the function.
+
+    console.log("reverse() = ", array11.reverse()) // reverse() method will reverse the order of the elements in the array, overwrites the original array, now the array11 is reversed; returns : reversed array
+
+</script>
+</body>
+</html>
