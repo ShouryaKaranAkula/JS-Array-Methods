@@ -118,8 +118,8 @@
     }))
 
     let array10 = ["Spices", "Pulses", "Almonds", "Jilebi"]; // Initialised new array
-    console.log(array10.map(function (value, index) { // map() function  creates a new array from calling a function for every array element. does not execute the function for empty elements. does not change the original array., returns new array which containing the result of the function
-        return value + " are essential"
+    console.log("map : ",array10.map(function (value, index) { // map() function  creates a new array from calling a function for every array element. does not execute the function for empty elements. does not change the original array., returns new array which containing the result of the function
+        return value + " are essential" // map() allows us to further modify the array, whereas forEach doesn't do it.
     }))
 
     //forEach vs map()
@@ -127,9 +127,7 @@
     const numbers = [1, 2, 3, 4];
 
     // Using forEach to double each element (side effect)
-    let num = numbers.forEach((number, index, array) => {
-        array[index] = number * 2;
-    });
+    let num = numbers.forEach((number, index, array) => {array[index] = number * 2;});
 
     console.log("forEach of the original array = ", numbers); // Output: [2, 4, 6, 8]
 
@@ -140,10 +138,37 @@
         return a - b // for ascending order a - b, for descending order b - a, sort() overwrites the original array
     }))
 
+
     // now the array11 updated with the sort() method and elements are arranged according to the function.
 
     console.log("reverse() = ", array11.reverse()) // reverse() method will reverse the order of the elements in the array, overwrites the original array, now the array11 is reversed; returns : reversed array
 
+
+
+    // reduce method
+    let reducedArray = array10.reduce((red, curr) => red + " " + curr.toUpperCase())
+    //reduce(prev value, current value, current Index, array[] => number)  callback function syntax, which returns number, string etc
+    console.log("reducedArray : ", reducedArray)
+
+    let obj = {
+        name : "Loki",
+        series : "marvel",
+        platform : "Disney",
+        episodes : 10,
+        match : "62%"
+    }
+    let loki = {...obj, episodes: 20} // Only updates episodes value, usage of rest operator
+    console.log("Loki : ",loki);
+
+
+    let {name, series, match} = obj; // Destructuring of object
+
+    console.log("name: ",name + "\n" + "series: ", series +  "\n" + "match: ", match)
+
+    // Array destructuring is index based, i.e., the value of the first index is assigned only to the first variable in destructured array
+
+    let [one, two, three, four, ...remaining] = array11;
+    console.log("one: ", one +  "\n" + "three: ", three)
 </script>
 </body>
 </html>
